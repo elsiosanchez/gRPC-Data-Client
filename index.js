@@ -1922,7 +1922,7 @@ class BusinessData {
         workflowStateName: this.getWorkflowState(workflowProcessToConvert.getWorkflowstate()),
         priority: workflowProcessToConvert.getPriority(),
         priorityName: this.getWorkflowPriority(workflowProcessToConvert.getPriority()),
-        workflowEvents: workflowProcessToConvert.getWorkfloweventsList().map(itemEvent => {
+        workflowEventsList: workflowProcessToConvert.getWorkfloweventsList().map(itemEvent => {
           return this.convertWorkflowEvent(itemEvent);
         }),
         logDate: new Date(workflowProcessToConvert.getLogdate())
