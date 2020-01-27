@@ -998,30 +998,28 @@ const convertUtils = {
       return WorkflowEvent.EventType;
     },
 
-    convertWorkflowEventFromGRPC(workflowEventToConvert) {
-      if (workflowEventToConvert) {
+    convertWorkflowProcessFomGRPC(workflowProcessToConvert) {
+      if (workflowProcessToConvert) {
         return {
-          nodeUuid: workflowEventToConvert.getNodeuuid(),
-          nodeName: workflowEventToConvert.getNodename(),
-          recordId: workflowEventToConvert.getRecordid(),
-          tableName: workflowEventToConvert.getTablename(),
-          userUuid: workflowEventToConvert.getUseruuid(),
-          userName: workflowEventToConvert.getUsername(),
-          responsibleUuid: workflowEventToConvert.getResponsibleuuid(),
-          responsibleName: workflowEventToConvert.getResponsiblename(),
-          textMessage: workflowEventToConvert.getTextmessage(),
-          timeElapsed: workflowEventToConvert.getTimeelapsed(),
-          attributeName: workflowEventToConvert.getAttributename(),
-          oldValue: workflowEventToConvert.getOldvalue(),
-          newValue: workflowEventToConvert.getNewvalue(),
-          workflowState: workflowEventToConvert.getWorkflowProcessWorkflowState(),
-          workflowStateName: convertUtils.getWorkflowProcessWorkflowState(workflowEventToConvert.getWorkflowProcessWorkflowState()),
-          eventType: workflowEventToConvert.getEventtype(),
-          eventTypeName: convertUtils.getWorkflowEventWorkflowEventType(workflowEventToConvert.getEventtype()),
-          logDate: new Date(workflowEventToConvert.getLogdate())
+          processUuid: workflowProcessToConvert.getProcessuuid(),
+          workflowUuid: workflowProcessToConvert.getWorkflowuuid(),
+          workflowName: workflowProcessToConvert.getWorkflowname(),
+          recordId: workflowProcessToConvert.getRecordid(),
+          tableName: workflowProcessToConvert.getTablename(),
+          userUuid: workflowProcessToConvert.getUseruuid(),
+          userName: workflowProcessToConvert.getUsername(),
+          responsibleUuid: workflowProcessToConvert.getResponsibleuuid(),
+          responsibleName: workflowProcessToConvert.getResponsiblename(),
+          textMessage: workflowProcessToConvert.getTextmessage(),
+          processed: workflowProcessToConvert.getProcessed(),
+          workflowState: workflowProcessToConvert.getWorkflowstate(),
+          priority: workflowProcessToConvert.getPriority(),
+          workflowEventsList: workflowProcessToConvert.getWorkfloweventsList().map(itemEvent => {
+            return convertUtils.convertWorkflowEventFromGRPC(itemEvent);
+          }),
+          logDate: new Date(workflowProcessToConvert.getLogdate())
         };
       }
-
       return {
         nodeUuid: undefined,
         nodeName: undefined,
