@@ -156,7 +156,7 @@ const convertUtils = {
         });
         selectionInstance.addValues(convertedSelection);
       });
-      return selec,tionInstance;
+      return selectionInstance;
     },
 
     /**
