@@ -961,8 +961,6 @@ const convertUtils = {
           responsibleName: workflowProcessToConvert.getResponsiblename(),
           textMessage: workflowProcessToConvert.getTextmessage(),
           processed: workflowProcessToConvert.getProcessed(),
-          workflowState: workflowProcessToConvert.getWorkflowProcessWorkflowState(),
-          workflowStateName: convertUtils.getWorkflowProcessWorkflowState(workflowProcessToConvert.getWorkflowProcessWorkflowState()),
           priority: workflowProcessToConvert.getPriority(),
           priorityName: convertUtils.getWorkflowProcessWorkflowPriority(workflowProcessToConvert.getPriority()),
           workflowEventsList: workflowProcessToConvert.getWorkfloweventsList().map(itemEvent => {
