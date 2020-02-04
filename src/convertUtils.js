@@ -863,6 +863,7 @@ const convertUtils = {
     convertChatEntryFromGRPC(chatEntryToConvert) {
       if (chatEntryToConvert) {
         return {
+          chatUuid: chatEntryToConvert.getChatuuid(),
           chatEntryUuid: chatEntryToConvert.getChatentryuuid(),
           subject: chatEntryToConvert.getSubject(),
           characterData: chatEntryToConvert.getCharacterdata(),
@@ -884,6 +885,7 @@ const convertUtils = {
         };
       }
       return {
+        chatUuid: undefined,
         chatEntryUuid: undefined,
         subject: undefined,
         characterData: undefined,
